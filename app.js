@@ -175,7 +175,7 @@ app.get('/hints', requireLogin, (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Upload The CSP Lab running at http://localhost:${PORT}`);
+  console.log(`Upload The Policy Lab running at http://localhost:${PORT}`);
   
 });
 
