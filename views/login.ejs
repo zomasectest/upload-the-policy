@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Upload The Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle at center, #140014 0%, #0d001a 100%);
+      color: #f8f9fa;
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .ctf-container {
+      background: rgba(20, 0, 40, 0.95);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 30px #a020f0cc, 0 0 10px #ff008066 inset;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #ff00aa;
+    }
+
+    .ctf-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff00c8, #a020f0);
+      color: #fff;
+      font-size: 0.95em;
+      padding: 6px 20px;
+      border-radius: 12px;
+      margin-bottom: 1.2em;
+      letter-spacing: 1px;
+      box-shadow: 0 0 12px #a020f088;
+      font-weight: bold;
+    }
+
+    h1.glitch {
+      position: relative;
+      color: #a020f0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #ff00aa, 0 0 10px #a020f0;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, -1px); }
+      80% { transform: translate(1px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    .form-control {
+      background-color: #0c0015;
+      color: #a020f0;
+      border: 1px solid #a020f0aa;
+      border-radius: 8px;
+      font-size: 0.95em;
+      padding: 10px 14px;
+      box-shadow: 0 0 6px #a020f044 inset;
+    }
+
+    .form-control:focus {
+      border-color: #ff003c;
+      box-shadow: 0 0 8px #ff003caa, 0 0 5px #ff003c55;
+      outline: none;
+    }
+
+    .btn-ctf {
+      margin-top: 1.2em;
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: #a020f0;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px #a020f088;
+    }
+
+    .btn-ctf:hover {
+      background: #ff003c;
+      box-shadow: 0 0 15px #ff003c88;
+      transform: scale(1.03);
+    }
+
+    .author {
+      margin-top: 2em;
+      font-size: 0.95em;
+      color: #ff003c;
+    }
+
+    .author a {
+      color: #a020f0;
+      text-decoration: none;
+    }
+
+    .author a:hover {
+      text-decoration: underline;
+      color: #ff66cc;
+    }
+
+    .text-danger.fw-bold {
+      margin-top: 1em;
+      text-shadow: 0 0 6px #ff003c88;
+    }
+  </style>
+</head>
+<body>
+  <div class="ctf-container shadow-lg">
+    <div class="ctf-badge">🚩 CTF Challenge</div>
+    <h1 class="glitch">Login</h1>
+    <% if (error) { %>
+      <p class="text-danger fw-bold"><%= error %></p>
+    <% } %>
+    <form method="POST" action="/login">
+      <div class="mb-3 text-start">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3 text-start">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-ctf">Login</button>
+    </form>
+    <div class="author">
+      Challenge by <strong>@zomasec</strong><br>
+      <a href="https://x.com/zomasec" target="_blank">Follow on X (Twitter)</a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

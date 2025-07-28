@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload The Secret File</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a001a, #2c003e 80%, #1a0000 100%);
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .ctf-container {
+      background: rgba(30, 0, 40, 0.97);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 rgba(255,0,204,0.25);
+      padding: 48px 36px 32px 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #a020f0;
+      margin-bottom: 24px;
+    }
+    .ctf-badge {
+      display: inline-block;
+      background: #a020f0;
+      color: #fff;
+      font-size: 1em;
+      padding: 6px 18px;
+      border-radius: 12px;
+      margin-bottom: 1.2em;
+      letter-spacing: 1px;
+      box-shadow: 0 0 12px #a020f088;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      letter-spacing: 2px;
+      color: #a020f0;
+      text-shadow: 0 0 12px #a020f0, 0 0 2px #fff;
+    }
+    .author {
+      margin-top: 2em;
+      font-size: 1.1em;
+      color: #ff003c;
+      letter-spacing: 1px;
+    }
+    .author a {
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    form {
+      margin-top: 1.5em;
+    }
+    input[type="file"] {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #a020f0;
+      background: #1a001a;
+      color: #a020f0;
+      font-size: 1em;
+      margin-top: 0.2em;
+      width: 90%;
+      box-shadow: 0 0 8px #a020f044;
+    }
+    button[type="submit"] {
+      margin-top: 1.2em;
+      padding: 10px 28px;
+      border-radius: 8px;
+      border: none;
+      background: #a020f0;
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 8px #a020f044;
+      transition: background 0.2s, color 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #ff003c;
+      color: #fff;
+      box-shadow: 0 0 12px #ff003c88;
+    }
+    .uploaded-info {
+      margin-top: 1.5em;
+      background: #1a001a;
+      color: #a020f0;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #a020f044;
+      word-break: break-all;
+      border: 1px solid #a020f0;
+    }
+    a {
+      color: #a020f0;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #ff003c;
+      text-shadow: 0 0 8px #ff003c;
+    }
+  </style>
+</head>
+<body>
+  <div class="ctf-container shadow-lg">
+    <div class="ctf-badge">CTF Challenge</div>
+    <h1>Upload The Secret File</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+      <input type="file" name="file" required>
+      <button type="submit">Upload</button>
+    </form>
+    <% if (uploaded) { %>
+      <div class="uploaded-info">
+        Uploaded: <code><%= uploaded %></code><br>
+        Direct link: <a href="<%= uploaded %>" target="_blank"><%= uploaded %></a>
+      </div>
+    <% } %>
+    <p><a class="btn btn-outline-light w-75 mt-3" style="border-color:#a020f0;color:#a020f0;" href="/">Back to Home</a></p>
+    <div class="author">
+      Challenge by <b>@zomasec</b><br>
+      <span style="font-size:0.95em;">Follow on <a href="https://x.com/zomasec" target="_blank">X (Twitter)</a></span>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

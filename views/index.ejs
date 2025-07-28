@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home - Upload The Policy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a001a, #2c003e 80%, #1a0000 100%);
+      color: #fff;
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .ctf-container {
+      background: rgba(30, 0, 40, 0.97);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 rgba(255,0,204,0.25);
+      padding: 48px 36px 32px 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #a020f0;
+      margin-bottom: 24px;
+    }
+    .ctf-badge {
+      display: inline-block;
+      background: #a020f0;
+      color: #fff;
+      font-size: 1em;
+      padding: 6px 18px;
+      border-radius: 12px;
+      margin-bottom: 1.2em;
+      letter-spacing: 1px;
+      box-shadow: 0 0 12px #a020f088;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 2.7em;
+      margin-bottom: 0.2em;
+      letter-spacing: 2px;
+      color: #a020f0;
+      text-shadow: 0 0 12px #a020f0, 0 0 2px #fff;
+    }
+    .userid {
+      background: #1a001a;
+      color: #ff003c;
+      padding: 8px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 0.7em;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      box-shadow: 0 0 8px #ff003c44;
+      border: 1px solid #ff003c;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 2em 0 0 0;
+    }
+    ul li {
+      margin: 1.2em 0;
+    }
+    a {
+      color: #a020f0;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #ff003c;
+      text-shadow: 0 0 8px #ff003c;
+    }
+    .author {
+      margin-top: 2em;
+      font-size: 1.1em;
+      color: #ff003c;
+      letter-spacing: 1px;
+    }
+    .author a {
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="ctf-container shadow-lg">
+    <div class="ctf-badge">CTF Challenge</div>
+    <h2>Upload The Policy</h2>
+    <div class="userid">Your user ID: <%= userid %></div>
+    <ul class="mt-4">
+      <li><a class="btn btn-outline-light w-75 mb-2" style="border-color:#a020f0;color:#a020f0;" href="/upload">Upload File</a></li>
+      <li><a class="btn btn-outline-light w-75 mb-2" style="border-color:#a020f0;color:#a020f0;" href="/profile">Vulnerable Profile Page</a></li>
+      <li><a class="btn btn-outline-danger w-75" href="/logout">Logout</a></li>
+    </ul>
+    <div class="author">
+      Challenge by <b>@zomasec</b><br>
+      <span style="font-size:0.95em;">Follow on <a href="https://x.com/zomasec" target="_blank">X (Twitter)</a></span>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
