@@ -30,7 +30,6 @@ function inputFilter(input) {
     /<script/gi,
     /<\/script>/gi,
     /javascript:/gi,
-    /on\w+\s*=/gi,
   ];
   dangerousPatterns.forEach(pattern => {
     filtered = filtered.replace(pattern, '');
@@ -197,6 +196,7 @@ app.get('/leaderboard', requireLogin, (req, res) => {
   // Placeholder leaderboard data
   const leaderboard = [
     { username: 'MushroomWasp', rank: 1 },
+    { username: 'caesareg', rank: 2 },
   ];
   res.render('leaderboard', { leaderboard, userid: req.session.userid });
 });
