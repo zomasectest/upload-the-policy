@@ -126,14 +126,16 @@
 </head>
 <body>
   <div class="ctf-container shadow-lg">
-    <div class="ctf-badge">CTF Challenge</div>
-    <h1>Profile for User <%= userid %></h1>
+    <div class="ctf-badge">Upload The Policy Challenge</div>
+    <h1>Profile Page</h1>
     <form method="GET" action="/profile">
       <label>Bio:<br><input type="text" name="bio" value="<%= bio %>"></label>
       <button type="submit">Update</button>
     </form>
   <br>
-    <div id="bio">Your Input is : <%- bio %></div> 
+    <% if (bio && bio.trim().length > 0) { %>
+      <div id="bio">Your Input is : <%- bio %></div>
+    <% } %>
     <br>
     <p><a class="btn btn-outline-light w-75 mt-3" style="border-color:#a020f0;color:#a020f0;" href="/">Back to Home</a></p>
     <div class="author">
