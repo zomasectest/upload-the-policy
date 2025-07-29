@@ -42,13 +42,12 @@ function inputFilter(input) {
   return filtered;
 }
 
-// Filter only <script> and </script> tags (case-insensitive)
 function scriptTagFilter(input) {
   if (!input) return input;
-  // Remove opening and closing script tags, with any attributes
+  // Remove opening and closing <script> tags (even broken across lines)
   return input
-    .replace(/<script\b[^>]*>/gi, '')
-    .replace(/<\/script\s*>/gi, '');
+    .replace(/<\s*s\s*c\s*r\s*i\s*p\s*t\b[^>]*>/gim, '')
+    .replace(/<\s*\/\s*s\s*c\s*r\s*i\s*p\s*t\s*>/gim, '');
 }
 
 
