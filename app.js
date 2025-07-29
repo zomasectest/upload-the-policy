@@ -31,9 +31,8 @@ function inputFilter(input) {
     /<script/gi,
     /<\/script>/gi,
     /javascript:/gi,
-    /on\w+\s*=/gi,  
+    /on\w+\s*=/gi,
   ];
-  
   dangerousPatterns.forEach(pattern => {
     filtered = filtered.replace(pattern, '');
   });
@@ -152,6 +151,12 @@ app.get('/user/:userid/:filename', (req, res) => {
 
 app.get('/profile', requireLogin, (req, res) => {
   const bio = req.query.bio || '';
+
+  // Check for <script> tag or "script" keyword (case-insensitive)
+  const scriptRegex = /<\s*script\b|script\b/i;
+  if (scriptRegex.test(bio)) {
+    return res.status(403).send('Forbidden: script tag or keyword detected');
+  }
 
   const filteredBio = inputFilter(bio);
   
