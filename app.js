@@ -187,6 +187,14 @@ app.get('/hints', requireLogin, (req, res) => {
   res.json({ hints });
 });
 
+app.get('/leaderboard', requireLogin, (req, res) => {
+  // Placeholder leaderboard data
+  const leaderboard = [
+    { username: 'MushroomWasp', rank: 1 },
+  ];
+  res.render('leaderboard', { leaderboard, userid: req.session.userid });
+});
+
 app.listen(PORT, () => {
   console.log(`Upload The Policy Lab running at http://localhost:${PORT}`);
   

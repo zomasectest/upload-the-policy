@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home - Upload The Policy</title>
+  <title>Leaderboard - Upload The Policy</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
@@ -41,11 +41,31 @@
       font-weight: bold;
     }
     h2 {
-      font-size: 2.7em;
+      font-size: 2.2em;
       margin-bottom: 0.2em;
       letter-spacing: 2px;
       color: #a020f0;
       text-shadow: 0 0 12px #a020f0, 0 0 2px #fff;
+    }
+    table {
+      width: 100%;
+      margin-top: 2em;
+      color: #fff;
+      background: rgba(30,0,40,0.7);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #a020f0;
+    }
+    th {
+      background: #a020f0;
+      color: #fff;
+      font-size: 1.1em;
+    }
+    tr:last-child td {
+      border-bottom: none;
     }
     .userid {
       background: #1a001a;
@@ -59,53 +79,44 @@
       box-shadow: 0 0 8px #ff003c44;
       border: 1px solid #ff003c;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 2em 0 0 0;
-    }
-    ul li {
-      margin: 1.2em 0;
-    }
-    a {
-      color: #a020f0;
-      text-decoration: none;
-      font-size: 1.2em;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: #ff003c;
-      text-shadow: 0 0 8px #ff003c;
-    }
-    .author {
-      margin-top: 2em;
-      font-size: 1.1em;
-      color: #ff003c;
-      letter-spacing: 1px;
-    }
-    .author a {
-      color: #a020f0;
-      text-decoration: none;
-      font-weight: bold;
+    a.btn {
+      margin-top: 1.5em;
     }
   </style>
 </head>
 <body>
   <div class="ctf-container shadow-lg">
-    <div class="ctf-badge">CTF Challenge</div>
-    <h2>Upload The Policy</h2>
+    <div class="ctf-badge">Leaderboard</div>
+    <h2>Top Players</h2>
     <div class="userid">Your user ID: <%= userid %></div>
-    <ul class="mt-4">
-      <li><a class="btn btn-outline-light w-75 mb-2" style="border-color:#a020f0;color:#a020f0;" href="/upload">Upload File</a></li>
-      <li><a class="btn btn-outline-light w-75 mb-2" style="border-color:#a020f0;color:#a020f0;" href="/profile">Vulnerable Profile Page</a></li>
-      <li><a class="btn btn-outline-light w-75 mb-2" style="border-color:#a020f0;color:#a020f0;" href="/leaderboard">Leaderboard</a></li>
-      <li><a class="btn btn-outline-danger w-75" href="/logout">Logout</a></li>
-    </ul>
-    <div class="author">
-      Challenge by <b>@zomasec</b><br>
-      <span style="font-size:0.95em;">Follow on <a href="https://x.com/zomasec" target="_blank">X (Twitter)</a></span>
-    </div>
+    <table class="table table-dark table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% function ordinal(n) {
+             if (n === 1) return '1st';
+             if (n === 2) return '2nd';
+             if (n === 3) return '3rd';
+             return n;
+           }
+        %>
+        <% leaderboard.forEach(function(entry, idx) { %>
+          <tr>
+            <td><%= ordinal(idx + 1) %></td>
+            <td>
+              <a href="https://x.com/<%= encodeURIComponent(entry.username) %>" target="_blank" rel="noopener noreferrer" style="color:#a020f0; text-decoration:underline;">
+                <%= entry.username %>
+              </a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a class="btn btn-outline-light w-75" style="border-color:#a020f0;color:#a020f0;" href="/">Back to Home</a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
