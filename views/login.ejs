@@ -42,6 +42,18 @@
       box-shadow: 0 0 12px #a020f088;
       font-weight: bold;
     }
+    .creds {
+      background: #1a001a;
+      color: #ff003c;
+      padding: 8px 18px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 0.7em;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      box-shadow: 0 0 8px #ff003c44;
+      border: 1px solid #ff003c;
+    }
 
     h1.glitch {
       position: relative;
@@ -120,8 +132,9 @@
 </head>
 <body>
   <div class="ctf-container shadow-lg">
-    <div class="ctf-badge">🚩 CTF Challenge</div>
+    <div class="ctf-badge">Upload The Policy Challenge</div>
     <h1 class="glitch">Login</h1>
+    <div class="creds">admin:admin</div>
     <% if (error) { %>
       <p class="text-danger fw-bold"><%= error %></p>
     <% } %>
