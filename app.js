@@ -26,7 +26,6 @@ function inputFilter(input) {
   
   let filtered = input;
   
-  
   const dangerousPatterns = [
     /<script/gi,
     /<\/script>/gi,
@@ -41,6 +40,15 @@ function inputFilter(input) {
   filtered = filtered.replace(/<\/([a-zA-Z]+)>/gi, '');
   
   return filtered;
+}
+
+// Filter only <script> and </script> tags (case-insensitive)
+function scriptTagFilter(input) {
+  if (!input) return input;
+  // Remove opening and closing script tags, with any attributes
+  return input
+    .replace(/<script\b[^>]*>/gi, '')
+    .replace(/<\/script\s*>/gi, '');
 }
 
 
@@ -159,10 +167,11 @@ app.get('/profile', requireLogin, (req, res) => {
   }
 
   const filteredBio = inputFilter(bio);
+  const scriptFiltered = scriptTagFilter(filteredBio)
   
   res.render('profile', { 
     userid: req.session.userid, 
-    bio: filteredBio,
+    bio: scriptFiltered,
     originalBio: bio 
   });
 });
