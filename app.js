@@ -44,10 +44,16 @@ function inputFilter(input) {
 
 function scriptTagFilter(input) {
   if (!input) return input;
-  // Remove opening and closing <script> tags (even broken across lines)
+
   return input
-    .replace(/<\s*s\s*c\s*r\s*i\s*p\s*t\b[^>]*>/gim, '')
-    .replace(/<\s*\/\s*s\s*c\s*r\s*i\s*p\s*t\s*>/gim, '');
+    // Remove any tag that *starts* with <scrip or <script (even broken or obfuscated)
+    .replace(/<\s*s\s*c\s*r\s*i\s*p[^>]*>?/gim, '')
+    // Remove any closing </script> tags (even broken or obfuscated)
+    .replace(/<\s*\/\s*s\s*c\s*r\s*i\s*p\s*t\s*>/gim, '')
+    // Remove inline event handlers like onerror=, onclick=, etc.
+    .replace(/\s+on\w+\s*=\s*(['"]).*?\1/gi, '')
+    // Remove src attribute that points to remote js
+    .replace(/\s+src\s*=\s*(['"])?[^'">]+\1?/gi, '');
 }
 
 
