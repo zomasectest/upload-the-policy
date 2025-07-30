@@ -197,6 +197,8 @@ app.get('/leaderboard', requireLogin, (req, res) => {
   const leaderboard = [
     { username: 'MushroomWasp', rank: 1 },
     { username: 'caesareg', rank: 2 },
+    { username: 'Al_Muthanna_0x8', rank: 3 },
+    { username: 'Loay Ahmed', rank: 4 },
   ];
   res.render('leaderboard', { leaderboard, userid: req.session.userid });
 });
