@@ -64,8 +64,8 @@ app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
     "default-src 'self'; " +
-    `script-src 'self' https://cdn.jsdelivr.net 'nonce-${nonce}' 'unsafe-inline'; ` +
-    "style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; " +
+    `script-src 'self' https://cdn.jsdelivr.net 'nonce-${nonce}'; ` +
+    `style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'nonce-${nonce}'; ` +
     "font-src 'self' https://fonts.gstatic.com; " +
     "img-src 'self' data:; " +
     "object-src 'none';"

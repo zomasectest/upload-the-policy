@@ -4,7 +4,7 @@
   <title>Upload The Secret File</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
+  <style nonce="<%= nonce %>">
     body {
       background: linear-gradient(135deg, #1a001a, #2c003e 80%, #1a0000 100%);
       color: #fff;
@@ -110,6 +110,14 @@
       color: #ff003c;
       text-shadow: 0 0 8px #ff003c;
     }
+    .btn-purple {
+      border-color: #a020f0;
+      color: #a020f0;
+    }
+    .btn-purple:hover {
+      color: #ff003c;
+      text-shadow: 0 0 8px #ff003c;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +134,7 @@
         Direct link: <a href="<%= uploaded %>" target="_blank"><%= uploaded %></a>
       </div>
     <% } %>
-    <p><a class="btn btn-outline-light w-75 mt-3" style="border-color:#a020f0;color:#a020f0;" href="/">Back to Home</a></p>
+    <p><a class="btn btn-outline-light w-75 mt-3 btn-purple" href="/">Back to Home</a></p>
     <div class="author">
       Challenge by <b>@zomasec</b><br>
       <span style="font-size:0.95em;">Follow on <a href="https://x.com/zomasec" target="_blank">X (Twitter)</a></span>
