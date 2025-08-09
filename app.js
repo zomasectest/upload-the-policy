@@ -199,6 +199,7 @@ app.get('/leaderboard', requireLogin, (req, res) => {
     { username: 'caesareg', rank: 2 },
     { username: 'Al_Muthanna_0x8', rank: 3 },
     { username: 'Loay Ahmed', rank: 4 },
+    { username: 'hacktoor2', rank: 5 },
   ];
   res.render('leaderboard', { leaderboard, userid: req.session.userid });
 });
